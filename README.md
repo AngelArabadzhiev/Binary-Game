@@ -7,9 +7,10 @@ The BinaryConverter game is a simple console-based game where players are tested
 
 **Features**
 
-- **Binary to Decimal Conversion**: The game generates a random decimal number, displays its binary representation, and asks the player to enter the decimal equivalent.
-- **Decimal to Binary Conversion**: The game generates a random decimal number, displays it, and asks the player to enter its binary representation.
-- **Feedback and Replay**: After each round, the game informs the player if their answer was correct or not and provides the correct answer if it was incorrect. The player can choose to continue or exit the game.
+- **Convert between binary, decimal, and hexadecimal formats.**
+- **Randomly generated numbers for practice.**
+- **Feedback on the correctness of user answers.**
+
 
 **Getting Started**
 
@@ -31,11 +32,17 @@ To play the game, you'll need to have a .NET runtime environment installed on yo
    ```
 
 3. **Play the Game**
+   - When prompted with "Do you want to play the game?", type yes to start or no to exit.
 
-   - When prompted, enter `"yes"` to start the game.
-   - Choose `"binary"` to receive a binary number and convert it to decimal.
-   - Choose `"decimal"` to receive a decimal number and convert it to binary.
-   - Input your answer and receive immediate feedback.
+   - Choose the format of the number you want to convert from: binary, decimal, or hexadecimal.
+
+   - Specify the format you want to convert to: binary, decimal, or hexadecimal.
+
+   - The game will display a random number in the chosen format and ask you to convert it to the target format.
+
+   - Enter your answer and receive feedback on whether it was correct.
+
+   - The game will repeat until you choose to exit by typing no when prompted.
 
 4. **Exit the Game**
 
@@ -45,16 +52,12 @@ To play the game, you'll need to have a .NET runtime environment installed on yo
 
 ```
 Do you want to play the game: yes
-Do you want a binary or a decimal number: binary
-Here is your binary number: 110101
-Enter your answer: 53
-Congratulations! You entered 53 which is the correct answer.
+Do you want to convert from a binary, decimal or a hexadecimal number? : binary
+Do you want to convert to a decimal or hexadecimal number: hexadecimal
+Here is your binary number: 1010
+Enter your answer: A
+Congratulations! You entered A which is the correct answer.
 
-Do you want to play the game: yes
-Do you want a binary or a decimal number: decimal
-Here is your decimal number: 25
-Enter your answer: 11001
-Congratulations! You entered 11001 which is the correct answer.
 ```
 
 ## Notes
