@@ -18,8 +18,8 @@ To play the game, you'll need to have a .NET runtime environment installed on yo
 1. **Clone the Repository**
 
    ```bash
-   git clone <https://github.com/AngelArbadzhiev/Binary-Game.git>
-   cd <Binary-Game>
+   git clone https://github.com/AngelArbadzhiev/Binary-Game.git
+   cd Binary-Game
    ```
 
 2. **Build and Run**
