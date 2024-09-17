@@ -98,10 +98,11 @@ internal class Program
                             break;
                         case "hexadecimal":
                             var rndDecHex = Random.Shared.Next(0, 16385);
-                            Console.WriteLine($"Here is your hexadecimal number: {rndDecHex:X}");
+                            Console.WriteLine($"Here is your decimal number: {rndDecHex}");
                             Console.Write("Enter your answer: ");
                             var answerHexDec = Console.ReadLine()!;
-                            if (answerHexDec.ToLower() == rndDecHex.ToString().ToLower())
+                            string answHex = $"{rndDecHex:X}";
+                            if (answerHexDec.ToLower() == answHex.ToLower())
                             {
                                 Console.WriteLine(
                                     $"Congratulations! You entered {answerHexDec.ToUpper()} which is the correct answer.");
@@ -110,7 +111,7 @@ internal class Program
                             else
                             {
                                 Console.WriteLine($"You entered {answerHexDec.ToUpper()} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {rndDecHex.ToString().ToUpper()}");
+                                Console.WriteLine($"The correct answer is: {answHex.ToUpper()}");
                                 Thread.Sleep(15000);
                             }
 
