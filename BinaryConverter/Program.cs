@@ -18,7 +18,7 @@ internal class Program
                 case "binary":
                 {
                     Console.Write("Do you want to convert to a decimal or hexadecimal number: ");
-                    string usrInputBin = Console.ReadLine();
+                    string usrInputBin = Console.ReadLine()!;
                     switch (usrInputBin.ToLower())
                     {
                         case "hexadecimal":
@@ -29,37 +29,16 @@ internal class Program
                             Thread.Sleep(5000);
                             Console.Write("Enter your answer: ");
                             string usrInputBinHex = Console.ReadLine()!;
-                            if (usrInputBinHex.ToLower() == hexNum.ToLower())
-                            {
-                                Console.WriteLine(
-                                    $"Congratulations! You entered {hexNum.ToUpper()} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {response.ToUpper()} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {hexNum.ToUpper()}.");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(hexNum, usrInputBinHex);
                             break;
                         case "decimal":
                             int valueBin = Random.Shared.Next(0, 16385);
-                            Console.WriteLine($"Here is your binary number: {Convert.ToString(valueBin, 2)}"); //Gives you a random binary number
+                            Console.WriteLine(
+                                $"Here is your binary number: {Convert.ToString(valueBin, 2)}"); //Gives you a random binary number
                             Thread.Sleep(5000);
                             Console.Write("Enter your answer: ");
                             string usrInputBinDec = Console.ReadLine()!;
-                            if (usrInputBinDec == valueBin.ToString())
-                            {
-                                Console.WriteLine(
-                                    $"Congratulations! You entered {valueBin} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {usrInputBinDec} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {valueBin}");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(valueBin.ToString(), usrInputBinDec);
                             Thread.Sleep(5000);
                             break;
                         default:
@@ -75,41 +54,22 @@ internal class Program
                     {
                         case "binary":
                             int valueDecBin = Random.Shared.Next(0, 16385);
-                            Console.WriteLine($"Here is your decimal number: {valueDecBin}"); //Gives you a random decimal number
+                            Console.WriteLine(
+                                $"Here is your decimal number: {valueDecBin}"); //Gives you a random decimal number
                             Thread.Sleep(10000);
                             Console.Write("Enter your answer: ");
                             string usrInputDecBin = Console.ReadLine()!;
                             string binaryNum = Convert.ToString(valueDecBin, 2); //Coverts that random number to the binary system
-                            if (usrInputDecBin == binaryNum)
-                            {
-                                Console.WriteLine($"Congratulations! You entered {usrInputDecBin} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {usrInputDecBin} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {binaryNum}");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(Convert.ToString(valueDecBin, 2), usrInputDecBin);
                             break;
                         case "hexadecimal":
                             int rndDecHex = Random.Shared.Next(0, 16385);
-                            Console.WriteLine($"Here is your decimal number: {rndDecHex}"); //Gives you a random decimal number
+                            Console.WriteLine(
+                                $"Here is your decimal number: {rndDecHex}"); //Gives you a random decimal number
                             Console.Write("Enter your answer: ");
                             string usrInputHexDec = Console.ReadLine()!;
                             string answHex = $"{rndDecHex:X}"; //Coverts that number to the hexadecimal system
-                            if (usrInputHexDec.ToLower() == answHex.ToLower())
-                            {
-                                Console.WriteLine(
-                                    $"Congratulations! You entered {usrInputHexDec.ToUpper()} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {usrInputHexDec.ToUpper()} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {answHex.ToUpper()}");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(answHex, usrInputHexDec);
                             break;
                         default:
                             Console.WriteLine("Invalid input. Try again.");
@@ -133,18 +93,7 @@ internal class Program
                             Thread.Sleep(5000);
                             Console.Write("Enter your answer: ");
                             string usrInputHexBin = Console.ReadLine()!;
-                            if (usrInputHexBin == binaryHexString)
-                            {
-                                Console.WriteLine(
-                                    $"Congratulations! You entered {usrInputHexBin} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {usrInputHexBin} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {binaryHexString}");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(binaryHexString, usrInputHexBin);
                             break;
                         case "decimal":
                             int rndDecHex = Random.Shared.Next(0, 16385); //Gives you a random number
@@ -152,18 +101,7 @@ internal class Program
                             Thread.Sleep(5000);
                             Console.Write("Enter your answer: ");
                             string usrInputHexDec = Console.ReadLine()!;
-                            if (usrInputHexDec == rndDecHex.ToString())
-                            {
-                                Console.WriteLine(
-                                    $"Congratulations! You entered {usrInputHexDec} which is the correct answer.");
-                                Thread.Sleep(5000);
-                            }
-                            else
-                            {
-                                Console.WriteLine($"You entered {usrInputHexDec} which is not the correct answer.");
-                                Console.WriteLine($"The correct answer is: {rndDecHex:X}");
-                                Thread.Sleep(15000);
-                            }
+                            CheckBin(Convert.ToString(rndDecHex, 16), usrInputHexDec);
                             break;
                         default:
                             Console.WriteLine("Invalid input. Try again.");
@@ -174,6 +112,21 @@ internal class Program
                     Console.WriteLine("Invalid input. Try again.");
                     break;
             }
+        }
+    }
+
+    private static void CheckBin(string answer, string usrInput)
+    {
+        if (answer.ToLower() == usrInput.ToLower())
+        {
+            Console.WriteLine($"Congratulations! You entered {usrInput.ToUpper()} which is the correct answer.");
+            Thread.Sleep(5000);
+        }
+        else
+        {
+            Console.WriteLine($"You entered {usrInput.ToUpper()} which is not the correct answer.");
+            Console.WriteLine($"The correct answer is: {usrInput.ToUpper()}.");
+            Thread.Sleep(15000);
         }
     }
 }
