@@ -9,9 +9,9 @@ internal class Program
             Console.Clear();
             Console.Write("Do you want to play the Binary Converter game? (yes/no): ");
             var input = Console.ReadLine() ?? "no";
-            if (input.ToLower() == "no") break;
-            if (input.ToLower() != "yes") Console.WriteLine("Invalid input. Try again with a yes or no.");
-            Console.Write("Do you want to convert from a binary,decimal or a hexadecimal number? : ");
+            if (input.Equals("no", StringComparison.CurrentCultureIgnoreCase)) break;
+            if (!input.Equals("yes", StringComparison.CurrentCultureIgnoreCase)) Console.WriteLine("Invalid input. Try again with a yes or no.");
+            Console.Write("Do you want to convert from a binary,decimal or a hexadecimal number?: ");
             var response = Console.ReadLine()!;
             switch (response.ToLower())
             {
@@ -25,13 +25,13 @@ internal class Program
                             var rndBinHex = Random.Shared.Next(0, 16385);
                             GenerateNum("binary", Convert.ToString(rndBinHex, 2));
                             var usrInputBinHex = Console.ReadLine()!;
-                            CheckIfNumsEqual(Convert.ToString(rndBinHex, 16), usrInputBinHex);
+                            CheckIfNumsEqual(Convert.ToString(rndBinHex, 16), usrInputBinHex.ToString());
                             break;
                         case "decimal":
                             var valueBin = Random.Shared.Next(0, 16385);
                             GenerateNum("binary", Convert.ToString(valueBin, 2));
                             var usrInputBinDec = Console.ReadLine()!;
-                            CheckIfNumsEqual(valueBin.ToString(), usrInputBinDec);
+                            CheckIfNumsEqual(valueBin.ToString(), usrInputBinDec.ToString());
                             Thread.Sleep(5000);
                             break;
                         default:
@@ -50,13 +50,13 @@ internal class Program
                             var valueDecBin = Random.Shared.Next(0, 16385);
                             GenerateNum("decimal", valueDecBin.ToString());
                             var usrInputDecBin = Console.ReadLine()!;
-                            CheckIfNumsEqual(Convert.ToString(valueDecBin, 2), usrInputDecBin);
+                            CheckIfNumsEqual(Convert.ToString(valueDecBin, 2), usrInputDecBin.ToString());
                             break;
                         case "hexadecimal":
                             var rndDecHex = Random.Shared.Next(0, 16385);
                             GenerateNum("decimal", rndDecHex.ToString());
                             var usrInputHexDec = Console.ReadLine()!;
-                            CheckIfNumsEqual(Convert.ToString(rndDecHex, 16), usrInputHexDec);
+                            CheckIfNumsEqual(Convert.ToString(rndDecHex, 16), usrInputHexDec.ToString());
                             break;
                         default:
                             Console.WriteLine("Invalid input. Try again.");
@@ -65,20 +65,20 @@ internal class Program
                     break;
                 case "hexadecimal":
                     Console.Write("Do you want to convert to a decimal or binary number: ");
-                    var usrInputHex = Console.ReadLine();
+                    string? usrInputHex = Console.ReadLine();
                     switch (usrInputHex.ToLower())
                     {
                         case "binary":
                             var rndBinHex = Random.Shared.Next(0, 16385); // Gives you a random number
                             GenerateNum("hexadecimal", Convert.ToString(rndBinHex, 16));
                             var usrInputHexBin = Console.ReadLine()!;
-                            CheckIfNumsEqual(Convert.ToString(rndBinHex, 2), usrInputHexBin);
+                            CheckIfNumsEqual(Convert.ToString(rndBinHex, 2), usrInputHexBin.ToString());
                             break;
                         case "decimal":
                             var rndDecHex = Random.Shared.Next(0, 16385); //Gives you a random number
                             GenerateNum("hexadecimal", Convert.ToString(rndDecHex, 16));
                             var usrInputHexDec = Console.ReadLine()!;
-                            CheckIfNumsEqual(Convert.ToString(rndDecHex, 16), usrInputHexDec);
+                            CheckIfNumsEqual(Convert.ToString(rndDecHex, 16), usrInputHexDec.ToString());
                             break;
                         default:
                             Console.WriteLine("Invalid input. Try again.");

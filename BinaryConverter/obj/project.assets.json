@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/angel/Downloads/Binary-Game/BinaryConverter/BinaryConverter.csproj",
+      "projectUniqueName": "/home/angel/RiderProjects/Binary-Game/BinaryConverter/BinaryConverter.csproj",
       "projectName": "BinaryConverter",
-      "projectPath": "/home/angel/Downloads/Binary-Game/BinaryConverter/BinaryConverter.csproj",
+      "projectPath": "/home/angel/RiderProjects/Binary-Game/BinaryConverter/BinaryConverter.csproj",
       "packagesPath": "/home/angel/.nuget/packages/",
-      "outputPath": "/home/angel/Downloads/Binary-Game/BinaryConverter/obj/",
+      "outputPath": "/home/angel/RiderProjects/Binary-Game/BinaryConverter/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/angel/.nuget/NuGet/NuGet.Config"

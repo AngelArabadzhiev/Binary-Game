@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BinaryConverter
-build_property.ProjectDir = /home/angel/Downloads/Binary-Game/BinaryConverter/
+build_property.ProjectDir = /home/angel/RiderProjects/Binary-Game/BinaryConverter/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
