@@ -101,7 +101,7 @@ internal class Program
         else
         {
             Console.WriteLine($"You entered {usrInput.ToUpper()} which is not the correct answer.");
-            Console.WriteLine($"The correct answer is: {usrInput.ToUpper()}.");
+            Console.WriteLine($"The correct answer is: {answer.ToUpper()}.");
             Thread.Sleep(15000);
         }
     }
